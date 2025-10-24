@@ -19,5 +19,6 @@ define view ZC_SALESORDER  as select from I_SalesDocument as a
     b.Division                          as Division,
     b.Material                as Material,        // Material Number
     b.OrderQuantity               as OrderQty,        // Order Quantity
-    b.OrderQuantityUnit                as SalesUnit       // Sales Unit
+    b.OrderQuantityUnit                as SalesUnit,       // Sales Unit
+    b.MaterialGroup           as MaterialGroup //Material Group
 }
