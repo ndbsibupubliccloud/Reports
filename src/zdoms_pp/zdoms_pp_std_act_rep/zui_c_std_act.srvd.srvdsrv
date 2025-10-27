@@ -1,0 +1,4 @@
+@EndUserText.label: 'Service Definition For Std and actualrep'
+define service ZUI_C_STD_ACT {
+  expose ZC_STD_ACT;
+}
