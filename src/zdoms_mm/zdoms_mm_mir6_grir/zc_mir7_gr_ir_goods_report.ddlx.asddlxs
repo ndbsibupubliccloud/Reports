@@ -1,0 +1,74 @@
+@Metadata.layer: #CORE
+annotate entity ZC_MIR7_GR_IR_GOODS_REPORT with
+{
+  @UI.facet: [{
+      id: 'goodsreport',
+      purpose: #STANDARD,
+      position:10 ,
+      label: 'Goodsreport ',
+      type:#IDENTIFICATION_REFERENCE
+  }]
+  @UI.lineItem: [{ position: 10 }]
+  @UI.identification: [{ position: 10 }]
+  @UI.selectionField: [{ position:10 }]
+  @EndUserText.label: 'Park InvNo'
+  @Consumption.valueHelpDefinition: [{ entity: {
+      name: 'ZI_MIR7_GR_IR_GOODS_REPORT',
+      element: 'SupplierInvoice'
+  } }]
+  SupplierInvoice;
+  @UI.lineItem: [{ position: 20 }]
+  @UI.selectionField: [{ position:20 }]
+  @UI.identification: [{ position: 20 }]
+  @EndUserText.label: 'Year'
+  FiscalYear;
+  @UI.lineItem: [{ position: 30 }]
+  @Search.defaultSearchElement: true
+  @UI.selectionField: [{ position:30 }]
+  @UI.identification: [{ position: 30 }]
+  @EndUserText.label: 'Park Posting Date'
+  PostingDate;
+  @UI.lineItem: [{ position: 40 }]
+  @Search.defaultSearchElement: true
+  @UI.selectionField: [{ position:40 }]
+  @UI.identification: [{ position: 40 }]
+  @EndUserText.label: 'MIGO Doc.No'
+  MaterialDocument;
+  @Search.defaultSearchElement: true
+  @UI.lineItem: [{ position: 50 }]
+  @UI.selectionField: [{ position:50 }]
+  @UI.identification: [{ position: 50 }]
+  @EndUserText.label: 'MIGO FI Doc.No'
+  AccountingDocument;
+  @UI.lineItem: [{ position: 60 }]
+  @Search.defaultSearchElement: true
+  @UI.selectionField: [{ position:60 }]
+  @UI.identification: [{ position: 60 }]
+  @EndUserText.label: 'Reference'
+  SupplierInvoiceIDByInvcgParty;
+  @UI.lineItem: [{ position: 70 }]
+  @Search.defaultSearchElement: true
+  @UI.selectionField: [{ position:70 }]
+  @UI.identification: [{ position: 70 }]
+  @EndUserText.label: 'Status'
+  SupplierInvoiceStatus;
+  @Search.defaultSearchElement: true
+  @UI.lineItem: [{ position: 80 }]
+  @UI.selectionField: [{ position:80 }]
+  @UI.identification: [{ position: 80 }]
+  @EndUserText.label: 'Supplier'
+  @Consumption.valueHelpDefinition: [{ entity: {
+      name: 'I_Supplier',
+      element: 'Supplier'
+  } }]
+  Supplier;
+  @UI.lineItem: [{ position: 90 }]
+  @UI.identification: [{ position: 90 }]
+  @EndUserText.label: 'Supplier Name'
+  SupplierName;
+  @UI.lineItem: [{ position: 100 }]
+  @UI.identification: [{ position: 100 }]
+  @EndUserText.label: 'Entered By'
+  AccountingDocCreatedByUser;
+
+}

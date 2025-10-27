@@ -1,0 +1,4 @@
+@EndUserText.label: 'Service defination for MIR7 GR IR GOODS REPORT'
+define service ZUI_MIR7_GR_IR_GOODS_REPORT {
+  expose ZC_MIR7_GR_IR_GOODS_REPORT;
+}
