@@ -1,0 +1,389 @@
+@Metadata.layer: #CORE
+@UI: {
+    headerInfo: { typeName: 'Sales Register',
+                title: { type: #STANDARD, label: 'Sales Register' } } }
+annotate entity ZC_SALESDATA_REPORT with
+{
+  @UI.facet: [{
+       id: 'idSalesRegister',
+       position:10 ,
+       label: 'SalesRegister',
+       type: #IDENTIFICATION_REFERENCE
+
+   }]
+ 
+  @UI:{ identification: [{ position: 338 }],
+        lineItem:       [{ position: 179, type: #STANDARD,label: 'Billing Document' }] ,  
+        selectionField: [{ position :10 }] }
+  @EndUserText.label: 'Billing Document'
+  BillingDocument;
+
+  @UI.hidden: true
+  BillingDocumentItem;
+
+
+  @UI:{ identification: [{ position: 20 }],
+        selectionField: [{ position :20 }],
+        lineItem:       [{ position: 20, type: #STANDARD, label: 'Document Date' }] }
+  @EndUserText.label: 'Document Date'
+  document_date;
+
+  @UI:{ selectionField: [{ position :30 }],
+        identification: [{ position: 20 }],
+        lineItem:       [{ position: 175, type: #STANDARD, label: 'BillingDocumentType' }]  }
+  @EndUserText.label: 'BillingDocumentType'
+  BillingDocumentType;
+
+  @UI:{ identification: [{ position: 30 }],
+       lineItem:        [{ position: 30, type: #STANDARD, label: 'Document Number' }]}
+  @EndUserText.label: 'Document Number'
+  documentnumber;
+
+  @UI:{ identification: [{ position: 40 }],
+        lineItem:       [{ position: 40, type: #STANDARD, label: 'Cust id' }] }
+  @EndUserText.label: 'Cust id'
+  custid;
+
+  @UI:{ identification: [{ position: 50 }],
+        lineItem:       [{ position: 50, type: #STANDARD, label: 'Customer Name' }] }
+  @EndUserText.label: 'Customer Name'
+  customername;
+
+  @UI:{ identification: [{ position: 60 }],
+        lineItem: [{ position: 60, type: #STANDARD,label: 'Ship to party code' }] }
+  @EndUserText.label: 'Ship to party code'
+  shiptopartycode;
+
+  @UI:{ identification: [{ position: 70 }],
+  lineItem: [{ position: 70, type: #STANDARD,label: 'ship to party Name' }] }
+  @EndUserText.label: 'ship to party Name'
+  shiptopartyname;
+
+  @UI:{ identification: [{ position: 80 }],
+  lineItem: [{ position: 80, type: #STANDARD,label: 'Material Group' }] }
+  @EndUserText.label: 'Material Group'
+  materialgroup;
+
+  @UI:{identification: [{ position: 90 }],
+  lineItem: [{ position: 90, type: #STANDARD,label: 'Material Group Desc' }] }
+  @EndUserText.label: 'Material Group Desc'
+  materialgroupdesc;
+
+  @UI:{ identification: [{ position: 100 }],
+  lineItem: [{ position: 100, type: #STANDARD,label: 'Material' }] }
+  @EndUserText.label: 'Material'
+  material;
+
+  @UI:{ identification: [{ position: 110 }],
+  lineItem: [{ position: 110, type: #STANDARD,label: 'Material Name' }] }
+  @EndUserText.label: 'Material Name'
+  materialname;
+
+  @UI:{ identification: [{ position: 120 }],
+  lineItem: [{ position: 120, type: #STANDARD,label: 'Order Quanity' }] }
+  @EndUserText.label: 'Order Quanity'
+  orderquanity;
+
+  @UI.hidden: true
+  orderquantityunit;
+
+  @UI:{ identification: [{ position: 140 }],
+  lineItem: [{ position: 125, type: #STANDARD,label: 'Order qty in cb' }] }
+  @EndUserText.label: 'Order qty in cb'
+  order_qty_in_cb;
+
+  @UI:{ identification: [{ position: 150 }],
+  lineItem: [{ position: 130, type: #STANDARD,label: 'Order value' }] }
+  @EndUserText.label: 'Order value'
+  ordervalue;
+
+  @UI:{ identification: [{ position: 160 }],
+  lineItem: [{ position: 140, type: #STANDARD,label: 'Cust PO No' }] }
+  @EndUserText.label: 'Cust PO No'
+  custpono;
+
+  @UI:{ identification: [{ position: 170 }],
+  lineItem: [{ position: 150, type: #STANDARD,label: 'Cust PO Dat' }] }
+  @EndUserText.label: 'Cust PO Dat'
+  cutpodat;
+
+  @UI:{ identification: [{ position: 180 }],
+  lineItem: [{ position: 160, type: #STANDARD,label: 'CUST PO EXPIRYDATE' }] }
+  @EndUserText.label: 'CUST PO EXPIRYDATE'
+  cust_po_expirydate;
+
+  @UI:{ identification: [{ position: 190 }],
+  lineItem: [{ position: 170, type: #STANDARD,label: 'CB SIZE' }] }
+  @EndUserText.label: 'CB SIZE'
+  cbsize;
+
+  @UI:{ identification: [{ position: 200 }],
+  lineItem: [{ position: 188, type: #STANDARD,label: 'Invoice Quantity' }] }
+  @EndUserText.label: 'Invoice Quantity'
+  BillingQuantity;
+
+  @UI.hidden: true
+  BillingQuantityUnit;
+
+  @UI:{ identification: [{ position: 210 }],
+  lineItem: [{ position: 190, type: #STANDARD,label: 'Alternate qty' }] }
+  @EndUserText.label: 'Alternate qty'
+  alternate_qty;
+
+  @UI:{ identification: [{ position: 220 }],
+  lineItem: [{ position: 200, type: #STANDARD,label: 'No.of.cb' }] }
+  @EndUserText.label: 'No.of.cb'
+  no_of_cb;
+
+  @UI:{ identification: [{ position: 230 }],
+  lineItem: [{ position: 210, type: #STANDARD,label: 'MRP value' }] }
+  @EndUserText.label: 'MRP value'
+  mrp_value;
+
+  @UI:{ identification: [{ position: 240 }],
+  lineItem: [{ position: 220, type: #STANDARD,label: 'unit price' }] }
+  @EndUserText.label: 'unit price'
+  unit_price;
+
+  @UI.lineItem: [{ position: 230, type: #STANDARD,label: 'uom' }]
+  uom;
+
+  @UI:{ identification: [{ position: 250 }],
+  lineItem: [{ position: 240, type: #STANDARD,label: 'inv basic value' }] }
+  @EndUserText.label: 'inv basic value'
+  inv_basic_value;
+
+  @UI:{ identification: [{ position: 260 }],
+  lineItem: [{ position: 250, type: #STANDARD,label: 'igst%' }] }
+  @EndUserText.label: 'igst%'
+  igst;
+
+  @UI:{ identification: [{ position: 270 }],
+  lineItem: [{ position: 260, type: #STANDARD,label: 'cgst%' }] }
+  @EndUserText.label: 'cgst%'
+  cgst;
+
+  @UI:{ identification: [{ position: 280 }],
+  lineItem: [{ position: 270, type: #STANDARD,label: 'sgst%' }] }
+  @EndUserText.label: 'sgst%'
+  sgst;
+
+  @UI:{ identification: [{ position: 290 }],
+  lineItem: [{ position: 280, type: #STANDARD,label: 'igst value' }] }
+  @EndUserText.label: 'igst value'
+  igstvalue;
+
+  @UI:{ identification: [{ position: 300 }],
+  lineItem: [{ position: 290, type: #STANDARD,label: 'cgst value' }] }
+  @EndUserText.label: 'cgstvalue'
+  cgstvalue;
+
+  @UI:{ identification: [{ position: 310 }],
+  lineItem: [{ position: 300, type: #STANDARD,label: 'sgst value' }] }
+  @EndUserText.label: 'sgstvalue'
+  sgstvalue;
+
+  @UI.hidden : true
+  transactioncurrency;
+
+  @UI.hidden : true
+  transaction_currency;
+
+  @UI.hidden : true
+  trans_currency;
+
+  @UI:{ identification: [{ position: 325 }],
+  lineItem: [{ position: 310, type: #STANDARD,label: 'ROUND UP' }] }
+  @EndUserText.label: 'ROUND UP'
+  roundup;
+
+  @UI:{ identification: [{ position: 330 }],
+  lineItem: [{ position: 320, type: #STANDARD,label: 'final value' }] }
+  @EndUserText.label: 'final value'
+  finalvalue;
+
+  @UI:{ identification: [{ position: 340 }],
+  lineItem: [{ position: 325, type: #STANDARD,label: 'Plant' }] }
+  @EndUserText.label: 'Plant'
+  plant;
+
+  @UI:{ identification: [{ position: 10 }],
+  lineItem: [{ position: 10, type: #STANDARD,label: 'order type' }] }
+  @EndUserText.label: 'order type'
+  ordertype;
+
+  @UI:{ identification: [{ position: 360 }],
+  lineItem: [{ position: 178, type: #STANDARD,label: 'Bill type desc' }] }
+  @EndUserText.label: 'Bill type desc'
+  billtypedesc;
+
+  @UI:{ identification: [{ position: 370 }],
+  lineItem: [{ position: 180, type: #STANDARD,label: 'Invoice No' }] }
+  @EndUserText.label: 'Invoice No'
+  invoiceno;
+
+  @UI:{ identification: [{ position: 380 }],
+  lineItem: [{ position: 185, type: #STANDARD,label: 'Invoice Date' }] }
+  @EndUserText.label: 'Invoice Date'
+  CreationDate;
+
+  @UI:{ identification: [{ position: 390 }],
+  lineItem: [{ position: 330, type: #STANDARD,label: 'Inv month' }] }
+  @EndUserText.label: 'Inv month'
+  invmonth;
+
+  @UI:{ identification: [{ position: 400 }],
+  lineItem: [{ position: 340, type: #STANDARD,label: 'Customer State' }] }
+  @EndUserText.label: 'Customer State'
+  customerstate;
+
+  @UI:{ identification: [{ position: 410 }],
+  lineItem: [{ position: 360, type: #STANDARD,label: 'Zone' }] }
+  @EndUserText.label: 'Zone'
+  zones;
+
+  @UI:{ identification: [{ position: 420 }],
+  lineItem: [{ position: 365, type: #STANDARD,label: 'Zone Description' }] }
+  @EndUserText.label: 'Zone Description'
+  zonedescription;
+
+  @UI:{ identification: [{ position: 430 }],
+  lineItem: [{ position: 370, type: #STANDARD,label: 'sales district description' }] }
+  @EndUserText.label: 'sales district description'
+  sales_district_description;
+
+  @UI:{ identification: [{ position: 440 }],
+  lineItem: [{ position: 375, type: #STANDARD,label: 'Customer group1' }] }
+  @EndUserText.label: 'Customer group1'
+  customergroup1;
+
+  @UI:{ identification: [{ position: 450 }],
+  lineItem: [{ position: 380, type: #STANDARD,label: 'Customer group2' }] }
+  @EndUserText.label: 'Customer group2'
+  customergroup2;
+
+  @UI:{ identification: [{ position: 460 }],
+  lineItem: [{ position: 385, type: #STANDARD,label: 'Cust GST no' }] }
+  @EndUserText.label: 'Cust GST no'
+  custgstno;
+
+  @UI:{ identification: [{ position: 470 }],
+  lineItem: [{ position: 390, type: #STANDARD,label: 'HSN Code' }] }
+  @EndUserText.label: 'HSN Code'
+  HSNcode;
+
+  @UI:{ identification: [{ position: 480 }],
+  lineItem: [{ position: 395, type: #STANDARD,label: 'Discount' }] }
+  @EndUserText.label: 'Discount'
+  discount_amount;
+
+  @UI.hidden : true
+  Transactioncur;
+
+  @UI:{ identification: [{ position: 500 }],
+  lineItem: [{ position: 400, type: #STANDARD,label: 'Cash discount' }] }
+  @EndUserText.label: 'Cash discount'
+  cashdiscount;
+
+  @UI:{ identification: [{ position: 510 }],
+  lineItem: [{ position: 405, type: #STANDARD,label: 'Posting Status' }] }
+  @EndUserText.label: 'Posting Status'
+  postingstatus;
+
+  @UI:{ identification: [{ position: 520 }],
+  lineItem: [{ position: 410, type: #STANDARD,label: 'Header Text' }] }
+  @EndUserText.label: 'Header Text'
+  headertext;
+
+  @UI:{ identification: [{ position: 530 }],
+  lineItem: [{ position: 420, type: #STANDARD,label: 'Currency' }] }
+  @EndUserText.label: 'Currency'
+  currency;
+
+  @UI:{ identification: [{ position: 540 }],
+  lineItem: [{ position: 425, type: #STANDARD,label: 'Producthierarchy' }] }
+  @EndUserText.label: 'Producthierarchy'
+  producthierarchy;
+
+  @UI:{ identification: [{ position: 545 }],
+  lineItem: [{ position: 430, type: #STANDARD,label: 'pending qty' }] }
+  @EndUserText.label: 'pending qty'
+  pendingqty;
+
+  @UI:{ identification: [{ position: 550 }],
+  lineItem: [{ position: 435, type: #STANDARD,label: 'pending qty in cb' }] }
+  @EndUserText.label: 'pending qty in cb'
+  pendingqtyincb;
+
+  @UI:{ identification: [{ position: 555 }],
+  lineItem: [{ position: 440, type: #STANDARD,label: 'pending order basic value' }] }
+  @EndUserText.label: 'pending order basic value'
+  pending_order_basicvalue;
+
+  @UI:{ identification: [{ position: 560 }],
+  lineItem: [{ position: 445, type: #STANDARD,label: 'pending ISGST value' }] }
+  @EndUserText.label: 'pending ISGST value'
+  pending_isgst_value;
+
+  @UI:{ identification: [{ position: 565 }],
+  lineItem: [{ position: 450, type: #STANDARD,label: 'pending SGST value' }] }
+  @EndUserText.label: 'pending SGST value'
+  pending_sgst_value;
+
+  @UI:{ identification: [{ position: 570 }],
+  lineItem: [{ position: 455, type: #STANDARD,label: 'pending CGST value' }] }
+  @EndUserText.label: 'pending CGST value'
+  pending_cgst_value;
+
+  @UI:{ identification: [{ position: 580 }],
+  lineItem: [{ position: 460, type: #STANDARD,label: 'ROUND UP' }] }
+  @EndUserText.label: 'ROUND UP'
+  round_up;
+
+  @UI:{ identification: [{ position: 585 }],
+  lineItem: [{ position: 465, type: #STANDARD,label: 'Final value' }] }
+  @EndUserText.label: 'final_value'
+  final_value;
+
+  @UI.hidden
+  reason_of_rejection;
+
+  @UI:{ identification: [{ position: 595 }],
+  lineItem: [{ position: 475, type: #STANDARD,label: 'CB SIZE' }] }
+  @EndUserText.label: 'CB SIZE'
+  cb_size;
+
+  @UI.hidden
+  exc_inv_no;
+
+  @UI.hidden
+  exc_inv_dt;
+
+  @UI.hidden
+  excise;
+
+  @UI.hidden
+  vat;
+
+  @UI.hidden
+  cst;
+
+  @UI.hidden
+  add_others;
+
+  @UI.hidden
+  discount_promotion;
+
+  @UI.hidden
+  additional_vat;
+
+  @UI.hidden
+  add_in_freight;
+
+  @UI.hidden
+  add_in_insurance;
+
+  @UI.hidden
+  tcs;
+
+}
