@@ -1,0 +1,4 @@
+@EndUserText.label: 'Service Definition for Acc Doc Post'
+define service ZUI_FI_ACC_DOC_POST {
+  expose ZC_FI_ACC_DOC_POST;
+}

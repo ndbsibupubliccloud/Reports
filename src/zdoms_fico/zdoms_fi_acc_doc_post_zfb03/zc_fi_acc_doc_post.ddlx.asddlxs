@@ -1,0 +1,134 @@
+@Metadata.layer: #CORE
+@UI:{
+headerInfo:{typeName:'FI Acc Doc Post',
+typeNamePlural:'FI Acconting Document Post',
+title:{type:#STANDARD,label:'AccDocument',value:'AccountingDocument'}}
+}
+annotate view ZC_FI_ACC_DOC_POST with
+{
+
+  @UI.facet: [{
+        id: 'AccDocPost',
+        position:10 ,
+        label: '(Acc Doc Post ZFB03)- Selection screen details',
+        type: #IDENTIFICATION_REFERENCE
+
+    }]
+
+  @UI.identification: [{ position: 10  }]
+  @UI.lineItem: [{ position: 1 }]
+  @EndUserText.label:'SourceLedger'
+  SourceLedger;
+
+  @UI.identification: [{ position: 20  }]
+  @UI.lineItem: [{ position: 2 }]
+  @EndUserText.label:' LedgerGLLineItem'
+  LedgerGLLineItem;
+
+  @UI.identification: [{ position: 30  }]
+  @EndUserText.label:' Company Code'
+  @UI.selectionField: [{ position: 10 }]
+  CompanyCode;
+
+  @UI.identification: [{ position: 60  }]
+  @EndUserText.label:'Fiscal Year'
+  @UI.selectionField: [{ position: 40 }]
+  FiscalYear;
+
+  @UI.identification: [{ position: 50  }]
+  @UI.lineItem: [{ position: 7 }]
+  @UI.selectionField: [{ position: 30 }]
+  @EndUserText.label:'Document Number'
+  AccountingDocument;
+
+  @UI.identification: [{ position: 70  }]
+  @UI.lineItem: [{ position: 3 }]
+  @EndUserText.label:'Posting Date'
+  @UI.selectionField: [{ position: 50 }]
+  PostingDate;
+
+  @UI.identification: [{ position: 80  }]
+  @UI.lineItem: [{ position: 4 }]
+  @EndUserText.label:'Document Date'
+  @UI.selectionField: [{ position: 60 }]
+  DocumentDate;
+
+  @UI.lineItem: [{ position: 5 }]
+  @EndUserText.label:'Ref No'
+  ReferenceDocument;
+
+  @UI.lineItem: [{ position: 6 }]
+  @EndUserText.label:'Ref Date'
+  SettlementReferenceDate;
+
+  @UI.identification: [{ position: 40  }]
+  @UI.lineItem: [{ position: 8 }]
+  @EndUserText.label:'Doc Type'
+  @UI.selectionField: [{ position: 20 }]
+  AccountingDocumentType;
+
+  @UI.identification: [{ position: 90  }]
+  @EndUserText.label:'  GLAccount'
+  @UI.selectionField: [{ position: 70 }]
+  GLAccount;
+
+  @UI.identification: [{ position: 91  }]
+  @EndUserText.label:'Vendor'
+  @UI.selectionField: [{ position: 80 }]
+  Supplier;
+
+  @UI.identification: [{ position: 92  }]
+  @EndUserText.label:'Customer'
+  @UI.selectionField: [{ position: 90 }]
+  Customer;
+
+  @UI.lineItem: [{ position: 10 }]
+  @EndUserText.label:'Cost Center'
+  CostCenter;
+
+  @UI.lineItem: [{ position: 13 }]
+  @EndUserText.label:'Account Description'
+  AccountingDocumentHeaderText;
+
+  @UI.lineItem: [{ position: 14 }]
+  @EndUserText.label:'Item Text'
+  DocumentItemText;
+
+  @UI.identification: [{ position: 93  }]
+  @UI.lineItem: [{ position: 15 }]
+  @EndUserText.label:'Tax Code'
+  @UI.selectionField: [{ position: 91 }]
+  TaxCode;
+
+  @UI.lineItem: [{ position: 16 }]
+  @EndUserText.label:'Cost Center Descript'
+  CostCenterDescription;
+
+  @UI.lineItem: [{ position: 17 }]
+  @EndUserText.label:'Profit Center'
+  ProfitCenter;
+
+  @EndUserText.label:' CompanyCodeCurrency'
+  CompanyCodeCurrency;
+
+  @UI.lineItem: [{ position: 12 }]
+  @EndUserText.label:'Debit Amount'
+  DebitAmount;
+
+  @UI.lineItem: [{ position: 11 }]
+  @EndUserText.label:'Credit Amount'
+  CreditAmount;
+
+  @UI.identification: [{ position: 93  }]
+  @UI.lineItem: [{ position: 9 }]
+  @EndUserText.label:'GL/Vender/CustCode'
+  GL_Vender_CustCode;
+
+  @UI.lineItem: [{ position: 18 }]
+  @EndUserText.label:'TotalDebitAmount'
+  TotalDebitAmount;
+
+  @UI.lineItem: [{ position: 19 }]
+  @EndUserText.label:'TotalCreditAmount'
+  TotalCreditAmount;
+}
