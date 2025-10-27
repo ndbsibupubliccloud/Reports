@@ -1,0 +1,4 @@
+@EndUserText.label: 'Service Definition for Customer Ledger Report'
+define service ZUI_Customer_Ledger_Rep {
+  expose ZI_Customer_Ledger_Report;
+}
