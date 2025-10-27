@@ -1,0 +1,4 @@
+@EndUserText.label: 'Service Defination for Delivery Details'
+define service ZUI_C_DEL_BARCODE {
+  expose ZC_DELIVER_Barcode;
+}
