@@ -1,0 +1,4 @@
+@EndUserText.label: 'Service Defination for Multi Level BOM'
+define service ZUI_R_BOM_MultiLevel {
+  expose ZR_BOM_COMPONENTS;
+}
