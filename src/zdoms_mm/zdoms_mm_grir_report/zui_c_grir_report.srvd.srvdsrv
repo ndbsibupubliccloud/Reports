@@ -1,0 +1,5 @@
+@EndUserText.label: 'Service Definition For GRIR Report'
+define service ZUI_C_GRIR_REPORT {
+  expose ZC_GRIR_REPORT;
+  expose ZI_GRIR_REPORT;
+}

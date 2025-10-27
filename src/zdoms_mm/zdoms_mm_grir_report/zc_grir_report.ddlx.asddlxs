@@ -1,0 +1,54 @@
+@Metadata.layer: #CORE
+@UI:{
+headerInfo:{typeName:'MIGO MM No',
+typeNamePlural:'MIGO MM No',
+title:{type:#STANDARD,label:'GRIR Report',value:'MigoMMNo'}}
+}
+annotate entity ZC_GRIR_REPORT with
+{
+  @UI.facet:[{purpose:#STANDARD,
+  type:#IDENTIFICATION_REFERENCE,
+  position:1,
+  label:'MIGO MM Details'}]
+  @UI:{lineItem:[{position:10}],
+  identification:[{position:10}]}
+  @EndUserText.label:'Migo MM No'
+  MigoMMNo;
+  @UI.hidden: true
+  matitem;
+  @UI.hidden: true
+  matyear;
+  @UI:{lineItem:[{position:20}],
+  identification:[{position:20}]}
+  @EndUserText.label:'Migo Date'
+  MigoDate;
+  @UI:{lineItem:[{position:30}],
+  identification:[{position:30}]}
+  @EndUserText.label:'Plant'
+  Plant;
+  @UI:{lineItem:[{position:40}],
+  identification:[{position:40}]}
+  @EndUserText.label:'Gate Inward No'
+  GateInwardNo;
+  @UI:{lineItem:[{position:50}],
+  identification:[{position:50}]}
+  @EndUserText.label:'Vendor code'
+  Vendorcode;
+  @UI:{lineItem:[{position:60}],
+  identification:[{position:60}]}
+  @EndUserText.label:'Name'
+  supplier;
+  @UI:{lineItem:[{position:70}],
+  identification:[{position:70}]}
+  @EndUserText.label:'GSTIN'
+  GSTIN;
+  @UI:{lineItem:[{position:80}],
+  identification:[{position:80}]}
+  @EndUserText.label:'Inv No'
+  InvNo;
+  @UI:{lineItem:[{position:90}],
+  identification:[{position:90}]}
+  @EndUserText.label:'Inv Date'
+  Invdate;
+
+}
