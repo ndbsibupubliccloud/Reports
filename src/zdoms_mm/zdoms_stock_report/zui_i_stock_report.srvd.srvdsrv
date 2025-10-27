@@ -1,0 +1,4 @@
+@EndUserText.label: 'Service Definition For Stock Report'
+define service ZUI_I_STOCK_REPORT {
+  expose ZI_STOCK_Custom;
+}
