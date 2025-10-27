@@ -1,0 +1,5 @@
+@EndUserText.label: 'Service Defination for Order Data'
+define service ZUI_C_ORDER {
+  expose ZC_ORD_ATT;
+  expose ZC_ORD_TBL;
+}

@@ -1,0 +1,101 @@
+managed implementation in class zbp_ir_ord_att unique;
+strict ( 2 );
+with draft;
+
+foreign entity I_ProductionOrdConfirmationTP;
+define behavior for ZIR_ORD_att //alias <alias_name>
+persistent table zexcel_ord_att
+draft table zexcel_ord_att_d
+lock master
+total etag LocalLastChangedAt
+authorization master ( instance )
+etag master LocalLastChangedAt
+{
+  create;
+  update;
+  delete;
+
+  field ( numbering : managed, readonly ) FileId;
+  field ( readonly ) LocalLastChangedBy;
+  //  association _ordtable { create; }
+
+  // Logic to convert uploaded excel into internal table and save to the child entity is written here
+  action ( features : instance ) uploadExcelData result [1] $self;
+  //  action uploadExcelData result [1] $self;
+
+  association _ordtable { create ( features : instance ); with draft; }
+  //  association _ordtable { create; with draft; }
+
+  // Logic to trigger action uploadExcelData
+  determination fields on modify { field Filename; }
+
+  // Change File Status During Creation of new record
+  determination FillFileStatus on modify { field LocalLastChangedBy; }
+  // Change File Status When file is selected
+  determination FillSelectedStatus on modify { field Attachment; }
+
+  determination callAPI on save { create; }
+
+  side effects
+  {
+    field Attachment affects field FileStatus;
+    action uploadExcelData affects $self, messages;
+    //determine action ChangeFileName executed on field Attachment affects $self, messages;
+  }
+
+  draft action Edit;
+  draft action Activate optimized;
+  draft action Discard;
+  draft action Resume;
+  draft determine action Prepare;
+
+  mapping for zexcel_ord_att
+    {
+      FileId             = file_id;
+      Status             = Status;
+      Attachment         = Attachment;
+      mimetype           = Mimetype;
+      filename           = Filename;
+      localcreatedby     = Local_Created_By;
+      localcreatedat     = Local_Created_At;
+      locallastchangedby = Local_Last_Changed_By;
+      locallastchangedat = Local_Last_Changed_At;
+      lastchangedat      = Last_Changed_At;
+    }
+
+
+}
+
+define behavior for ZI_ORD_TBL //alias <alias_name>
+persistent table zexcel_ord_tbl
+draft table zdexcel_ord_tbl
+lock dependent by _excel
+//authorization dependent by _excel
+authorization master ( instance )
+etag master FinishDate
+{
+  update;
+  delete;
+  field ( readonly ) FileId, Mfgorder, OrderId, AutoCnf, CnfScrap, ExecutionDate, FinalCnf, FinishDate, PartialCnf, Rework, status;
+  association _excel { with draft; }
+
+  mapping for zexcel_ord_tbl
+    {
+      FileId        = file_id;
+      Mfgorder      = mfgorder;
+      OrderId       = order_id;
+      PartialCnf    = partial_cnf;
+      finalCnf      = final_cnf;
+      AutoCnf       = auto_cnf;
+      YieldCnf      = yield_cnf;
+      CnfScrap      = cnf_scrap;
+      Rework        = rework;
+      Unit          = unit;
+      ExecutionDate = execution_date;
+      FinishDate    = finish_date;
+      PostingDt     = posting_dt;
+      status        = status;
+    }
+
+
+}

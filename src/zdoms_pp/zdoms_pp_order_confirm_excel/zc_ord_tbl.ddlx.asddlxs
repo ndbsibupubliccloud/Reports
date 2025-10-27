@@ -1,0 +1,59 @@
+@Metadata.layer: #CORE
+annotate entity ZC_ORD_TBL with
+{
+  @UI.facet: [{
+         id: 'SES',
+         type: #FIELDGROUP_REFERENCE,
+         purpose: #STANDARD,
+         label: 'SES',
+         targetQualifier: 'FileId'
+      }]
+   //    @UI.lineItem: [{ position: 1 },   { type: #FOR_ACTION, dataAction: 'createSES', label: 'Process FileId' }]
+  @UI.lineItem: [{ position: 10 }]
+  @UI.identification: [{ position: 10 }]
+  FileId;
+  @UI.lineItem: [{ position: 20 , label: 'Order',invocationGrouping: #ISOLATED }]
+  //   { type: #FOR_ACTION, dataAction: 'createSES', label: 'Process FileId' }]
+  @UI.fieldGroup: [{ position: 20 , label: 'Order', qualifier: 'FileId' }]
+  Mfgorder;
+  @UI.lineItem: [{ position: 30 , label: 'Operation' }]
+  @UI.fieldGroup: [{ position: 30 , label: 'Operation', qualifier: 'FileId' }]
+  OrderId;
+  @UI.lineItem: [{ position: 40 , label: 'Partial' }]
+  @UI.fieldGroup: [{ position: 40 , label: 'Partial', qualifier: 'FileId' }]
+  PartialCnf;
+  @UI.lineItem: [{ position: 50 , label: 'Final' }]
+  @UI.fieldGroup: [{ position: 50 , label: 'Final', qualifier: 'FileId' }]
+  FinalCnf;
+  @UI.lineItem: [{ position: 60 , label: 'Auto Final' }]
+  @UI.fieldGroup: [{ position: 60 , label: 'Auto Final', qualifier: 'FileId' }]
+  AutoCnf;
+  @UI.lineItem: [{ position: 70 , label: 'YIELD TO BE CONFIRMED' }]
+  @UI.fieldGroup: [{ position: 70 , label: 'YIELD TO BE CONFIRMED', qualifier: 'FileId' }]
+  YieldCnf;
+  @UI.lineItem: [{ position: 80 , label:'CONFIRMED SCRAP' }]
+  @UI.fieldGroup: [{ position: 80 , label: 'CONFIRMED SCRAP', qualifier: 'FileId' }]
+  CnfScrap;
+  @UI.lineItem: [{ position: 90 , label: 'REWORK' }]
+  @UI.fieldGroup: [{ position: 90 , label: 'REWORK', qualifier: 'FileId' }]
+  Rework;
+  @UI.hidden: true
+  //     @UI.lineItem: [{ position: 30 , label: 'Creation Date' }]
+  //  @UI.fieldGroup: [{ position: 30 , label: 'Creation Date', qualifier: 'FileId' }]
+  Unit;
+  @UI.lineItem: [{ position: 100 , label: 'EXECUTION START' }]
+  @UI.fieldGroup: [{ position: 100 , label: 'EXECUTION START', qualifier: 'FileId' }]
+  ExecutionDate;
+  @UI.lineItem: [{ position: 110 , label: 'FINISH DATE' }]
+  @UI.fieldGroup: [{ position: 110 , label: 'FINISH DATE', qualifier: 'FileId' }]
+  FinishDate;
+  @UI.lineItem: [{ position: 120 , label: 'POSTING DATE' }]
+  @UI.fieldGroup: [{ position: 120 , label: 'POSTING DATE', qualifier: 'FileId' }]
+  PostingDt;
+  @UI.lineItem: [{ position: 130 , label: 'Status' }]
+  @UI.fieldGroup: [{ position: 130 , label: 'Status', qualifier: 'FileId' }]
+  status;
+  /* Associations */
+  //    _excel;element_name;
+
+}

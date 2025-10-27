@@ -1,0 +1,58 @@
+@Metadata.layer: #CORE
+annotate entity ZC_ORD_ATT with
+{
+  @UI.facet: [
+          /* Header Fecets and Datapoints */
+          { purpose: #HEADER,             id:'HDR_USER',        type: #DATAPOINT_REFERENCE,      position: 10, targetQualifier: 'FileId'                                             },
+          { purpose: #HEADER,             id:'HDR_FILE',        type: #DATAPOINT_REFERENCE,      position: 20, targetQualifier: 'LocalLastChangedAt'                                },
+          { purpose: #HEADER,             id:'HDR_STATUS',      type: #DATAPOINT_REFERENCE,      position: 30, targetQualifier: 'Status'                                               },
+   //   //**----  Body facets
+          { label: 'File Information',    id: 'Attachment',     type: #COLLECTION,               position: 10                                                                        },
+          { label: 'Order Details',       id: 'Order',     type: #IDENTIFICATION_REFERENCE, position: 10,                             parentId: 'File',        purpose: #STANDARD },
+          {                               id: 'Upload',         type: #FIELDGROUP_REFERENCE,     position: 20  ,targetQualifier: 'Upload', parentId: 'Attachment',  purpose: #STANDARD },
+
+      //** --- Excel data Facet **
+          { label: 'Excel Order details',  id: 'Data',           type: #LINEITEM_REFERENCE,       position: 30,  targetElement: '_ordtable', purpose: #STANDARD } ]//,parentId: 'Attachment' , hidden: #(HideExcel) } ]
+
+
+  @UI: { lineItem:       [ { position: 10, importance: #HIGH , label: 'File ID'}  ] ,
+         identification: [ { position: 10 , label: 'File Id' }
+  //                               { type: #FOR_ACTION, dataAction: 'uploadExcelData' ,label: 'Validate and Show' }
+                           ] ,
+         dataPoint:        { title: 'File Id', targetValueElement: 'FileId' } }
+
+  FileId;
+  @UI: { lineItem:       [ { position: 20, importance: #HIGH , label: 'Processing Status'} ] ,
+  identification: [ { position: 20 , label: 'Processing Status' } ] ,
+  dataPoint:        {  qualifier: 'Status' ,title: 'Status', targetValueElement: 'FileStatus' } } //,criticality: 'CriticalityStatus' ,criticalityRepresentation: #WITHOUT_ICON
+
+  FileStatus;
+  //  Status;
+  //    Criticality;
+  //     @UI: { lineItem:       [ { position: 10, importance: #HIGH , label: 'Attachment'}  ] ,
+  //           identification: [ { position: 10 , label: 'Attachment' },
+  //                               { type: #FOR_ACTION, dataAction: 'uploadExcelData', label: 'Validate and Show' }
+  //                             ] ,
+  //           dataPoint:        { title: 'Attachment', targetValueElement: 'Attachment' } }
+
+  @UI: { fieldGroup:     [ { position: 50, qualifier: 'Upload' , label: 'Attachment'} ]}
+  @UI: { identification: [ { position: 30 , label: 'File' } ] }
+  Attachment;
+  @UI.hidden: true
+  Mimetype;
+  @UI.hidden: true
+  Filename;
+  @UI.hidden: true
+  LocalCreatedBy;
+  @UI.hidden: true
+  LocalCreatedAt;
+  @UI.hidden: true
+  LocalLastChangedBy;
+  @UI: { dataPoint:{ title: 'Last Action On', targetValueElement: 'LocalLastChangedAt' } }
+  LocalLastChangedAt;
+  @UI.hidden: true
+  LastChangedAt;
+  /* Associations */
+  //    _ordtable;
+
+}
