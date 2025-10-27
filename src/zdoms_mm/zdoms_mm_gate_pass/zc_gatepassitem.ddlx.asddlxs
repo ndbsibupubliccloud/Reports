@@ -1,0 +1,112 @@
+@Metadata.layer: #CORE
+@UI: {
+  headerInfo: { typeName: 'Gate Entry Item Details- RGP/NRGP',
+                typeNamePlural: 'Gate Entry Item Details- RGP/NRGP',
+                title: { type: #STANDARD, value: 'Gatepassnumber' } } }
+annotate entity ZC_GatePassITEM with
+{
+  @UI.facet: [ { id:            'Gatepassnumber',
+                 purpose:       #STANDARD,
+                 type:          #IDENTIFICATION_REFERENCE,
+                 label:         'Gate Entry Item Details',
+                 position:      10 }  ]
+
+  //@UI: { identification: [ { position: 10, label: 'Booking UUID'  } ] }
+  @UI: { lineItem:       [ { position: 20 } ],
+         identification: [ { position: 20 } ] }
+  @EndUserText.label: 'Gatepass Type'
+  Gatepasstype;
+
+  @UI: { lineItem:       [ { position: 20 } ],
+         identification: [ { position: 20 } ] }
+  @EndUserText.label: 'Gatepass Number'
+  Gatepassnumber;
+
+  @UI: { lineItem:       [ { position: 30 } ],
+         identification: [ { position: 30 } ] }
+  @EndUserText.label: 'Sl. No.'
+  Slno;
+
+  @UI: { lineItem:       [ { position: 40 } ],
+         identification: [ { position: 40 } ] }
+  @EndUserText.label: 'Material Number'
+  @Consumption.valueHelpDefinition: [{ entity:{ name: 'I_ProductText',
+                                                element: 'Product' },
+                                                distinctValues: true,
+
+   additionalBinding:[  {localElement:'Materialdescription',element:'ProductName',usage: #RESULT} ], useForValidation: true }]
+  Materialnumber;
+
+  @UI: { lineItem:       [ { position: 50 } ],
+         identification: [ { position: 50 } ] }
+  @EndUserText.label: 'Material Description'
+  Materialdescription;
+
+  @UI: { lineItem:       [ { position: 60 } ],
+         identification: [ { position: 60 } ] }
+  @EndUserText.label: 'Quantity'
+  Quantity;
+
+  @UI: { lineItem:       [ { position: 70 } ],
+         identification: [ { position: 70 } ] }
+  @EndUserText.label: 'UOM'
+  @Consumption.valueHelpDefinition: [{ entity:{ name: 'I_UnitOfMeasureTechnicalName',
+                                               element: 'UnitOfMeasureTechnicalName' },
+                                               distinctValues: true } ]
+  Uom;
+
+  @UI: { lineItem:       [ { position: 80 } ],
+         identification: [ { position: 80 } ] }
+  @EndUserText.label: 'Value'
+  Value;
+
+  @UI: { lineItem:       [ { position: 90 } ],
+         identification: [ { position: 90 } ] }
+  @EndUserText.label: 'Currency'
+  Currency;
+
+  @UI: { lineItem:       [ { position: 100 } ],
+         identification: [ { position: 100 } ] }
+  @EndUserText.label: 'Batch No.'
+  Batchno;
+
+  @UI: { lineItem:       [ { position: 110 } ],
+         identification: [ { position: 110 } ] }
+  @EndUserText.label: 'Expected Return Date'
+  Expectedreturndate;
+
+  @UI: { lineItem:       [ { position: 120 } ],
+         identification: [ { position: 120 } ] }
+  @EndUserText.label: 'Return Date'
+  Returndate;
+
+  @UI: { lineItem:       [ { position: 130 } ],
+         identification: [ { position: 130 } ] }
+  @EndUserText.label: 'Total Received Qty'
+  Totalreceivedqty;
+
+  @UI: { lineItem:       [ { position: 140 } ],
+         identification: [ { position: 140 } ] }
+  @EndUserText.label: 'Received Qty'
+  Receivedqty;
+
+  @UI: { lineItem:       [ { position: 150 } ],
+         identification: [ { position: 150 } ] }
+  @EndUserText.label: 'Remarks'
+  ItemRemarks;
+
+  @UI.hidden: true
+  Createdby;
+
+  @UI.hidden: true
+  Createdat;
+
+  @UI.hidden: true
+  Lastchangedby;
+
+  @UI.hidden: true
+  Lastchangedat;
+  //  /* Associations */
+  //  _hdr;
+
+}

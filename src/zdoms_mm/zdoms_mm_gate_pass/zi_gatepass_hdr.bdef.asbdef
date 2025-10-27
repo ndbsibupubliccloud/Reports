@@ -1,0 +1,90 @@
+managed implementation in class zbp_i_gatepass_hdr unique;
+strict ( 2 );
+
+define behavior for ZI_GATEPASS_HDR //alias <alias_name>
+//implementation in class ZI_GATEPASS_Head unique
+persistent table zmm_gateentryhdr
+lock master
+authorization master ( instance )
+//late numbering
+early numbering
+etag master Lastchangedat
+{
+  create;
+  update;
+  delete;
+  field ( readonly ) Gatepassnumber, Createdat, Createdby, Lastchangedat, Lastchangedby, Vendorname, Gstno, State, Address, Pincode;
+  field ( mandatory : create, readonly : update ) Gatepasstype;// Gatepassnumber;//,
+  association _item { create; }
+  // Print Preview form
+//  action ( features : instance ) print;
+
+  determination SetVendordetails on modify { create; field Vendorcode; }
+
+
+  mapping for zmm_gateentryhdr corresponding
+    {
+      Gatepassnumber     = gatepassnumber;
+      Gatepasstype       = gatepasstype;
+      Plant              = plant;
+      Storagelocation    = storagelocation;
+      Vendorcode         = vendorcode;
+      Vendorname         = vendorname;
+      Gstno              = gstno;
+      State              = state;
+      Pincode            = pincode;
+      Address            = address;
+      Vehicleno          = vehicleno;
+      Departmentname     = departmentname;
+      Requestername      = requestername;
+      Transporterdetails = transporterdetails;
+      Lorrynum           = lorry_num;
+      Modeoftransport    = modeoftransport;
+      Remarks            = remarks;
+      Createdby          = createdby;
+      Createdat          = createdat;
+      Lastchangedby      = lastchangedby;
+      Lastchangedat      = lastchangedat;
+    }
+
+}
+
+define behavior for ZI_GATEPASS_ITEM //alias <alias_name>
+persistent table zmm_gatepassitem
+lock dependent by _hdr
+authorization dependent by _hdr
+early numbering
+//late numbering
+etag master Lastchangedat
+{
+  update;
+  delete;
+  field ( readonly ) Gatepasstype, Gatepassnumber, Createdat, Createdby, Lastchangedat, Lastchangedby;
+  field ( readonly ) Slno;
+  //  field ( mandatory : create, readonly : update ) Materialnumber, Materialdescription;
+  association _hdr;
+  validation quantity on save { create; update; field Quantity; }
+  mapping for zmm_gatepassitem corresponding
+    {
+      Gatepasstype        = gatepasstype;
+      Gatepassnumber      = gatepassnumber;
+      Slno                = slno;
+      Materialnumber      = materialnumber;
+      Materialdescription = materialdescription;
+      Quantity            = quantity;
+      Uom                 = uom;
+      Value               = value;
+      Currency            = currency;
+      Batchno             = batchno;
+      Expectedreturndate  = expectedreturndate;
+      Returndate          = returndate;
+      Totalreceivedqty    = totalreceivedqty;
+      Receivedqty         = receivedqty;
+      ItemRemarks         = remarks;
+      Createdby           = createdby;
+      Createdat           = createdat;
+      Lastchangedby       = lastchangedby;
+      Lastchangedat       = lastchangedat;
+    }
+
+}

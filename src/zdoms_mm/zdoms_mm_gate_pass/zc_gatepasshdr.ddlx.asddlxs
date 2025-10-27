@@ -1,0 +1,154 @@
+@Metadata.layer: #CORE
+@UI: {
+  headerInfo: { typeName: 'Gate Entry Header Details - RGP/NRGP',
+                typeNamePlural: 'Gate Entry Header Details - RGP/NRGP',
+                title: { type: #STANDARD, label: 'Gate Entry Header Details - RGP/NRGP', value: 'Gatepassnumber' } } }
+//  presentationVariant: [{ sortOrder: [{ by: 'TravelID', direction:  #DESC }] }] }
+annotate entity ZC_GatePassHDR with
+{
+
+  @UI.facet: [ { id:              'Gatepassnumber',
+                 purpose:         #STANDARD,
+                 type:            #IDENTIFICATION_REFERENCE,
+                 label:           'Gate Entry Header Details',
+                 position:        10 },
+               { id:              'ITEM',
+                 purpose:         #STANDARD,
+                 type:            #LINEITEM_REFERENCE,
+                 label:           'Gate Entry Item Details',
+                 position:        20,
+                 targetElement:   '_item'} ]
+
+  //@UI:{ identification: [{ position: 1, label: 'Travel UUID' }] }
+  @UI: {  lineItem:       [ { position: 10 } ],
+          identification: [ { position: 10 } ],
+          selectionField: [ { position: 10 } ] }
+  @EndUserText.label: 'Gatepass Type'
+  @Consumption.valueHelpDefinition: [{ entity:{ name: 'ZI_GatePassType',
+                                               element: 'text' }}]
+  Gatepasstype;
+
+  @UI: {  lineItem:       [ { position: 20 } ],
+          identification: [ { position: 20 } ],
+          selectionField: [ { position: 20 } ] }
+  @EndUserText.label: 'Gatepass Number'
+  Gatepassnumber;
+
+  @UI: {  lineItem:       [ { position: 30 } ],
+          identification: [ { position: 30 } ],
+          selectionField: [ { position: 30 } ] }
+  @EndUserText.label: 'Plant'
+  @Consumption.valueHelpDefinition: [{ entity:{ name: 'I_Plant',
+                                              element: 'Plant' },
+                                              distinctValues: true }]
+  Plant;
+
+  @UI: {  lineItem:       [ { position: 40 } ],
+          identification: [ { position: 40 } ] }
+  @EndUserText.label: 'Storage Location'
+  @Consumption.valueHelpDefinition: [{ entity:{ name: 'I_StorageLocation',
+                                            element: 'StorageLocation' },
+                                            distinctValues: true }]
+  Storagelocation;
+
+  @UI: {  lineItem:       [ { position: 50 } ],
+          identification: [ { position: 50 } ] }
+  @EndUserText.label: 'Vendor Code'
+  @Consumption.valueHelpDefinition: [{ entity:{ name: 'ZI_SupplierDeatilsVH',
+                                               element: 'Supplier' },
+                                               distinctValues: true,
+     additionalBinding:[  {localElement:'Vendorname',element:'BusinessPartnerName1',usage: #RESULT},
+                          {localElement:'Gstno',element:'GstNo',usage: #RESULT},
+                          {localElement:'State',element:'state',usage: #RESULT},
+                          {localElement:'Address',element:'Address',usage: #RESULT},
+                          {localElement:'Pincode',element:'PostalCode', usage: #RESULT }  ], useForValidation: true }]
+  Vendorcode;
+
+  @UI: {  lineItem:       [ { position: 60 } ],
+          identification: [ { position: 60 } ] }
+  @EndUserText.label: 'Vendor Name'
+  Vendorname;
+
+  @UI: {  lineItem:       [ { position: 70 } ],
+          identification: [ { position: 70 } ] }
+  @EndUserText.label: 'GST No.'
+  Gstno;
+
+  @UI: {  lineItem:       [ { position: 80 } ],
+          identification: [ { position: 80 } ] }
+  @EndUserText.label: 'State'
+  State;
+
+  @UI: {  lineItem:       [ { position: 90 } ],
+          identification: [ { position: 90 } ] }
+  @EndUserText.label: 'Pincode'
+  Pincode;
+
+  @UI: {  lineItem:       [ { position: 100 } ],
+          identification: [ { position: 100 } ] }
+  @EndUserText.label: 'Address'
+  Address;
+
+  @UI: {  lineItem:       [ { position: 110 } ],
+          identification: [ { position: 110 } ] }
+  @EndUserText.label: 'Vehicle No.'
+  Vehicleno;
+
+  @UI: {  lineItem:       [ { position: 120 } ],
+          identification: [ { position: 120 } ] }
+  @EndUserText.label: 'Department Name'
+  Departmentname;
+
+  @UI: {  lineItem:       [ { position: 130 } ],
+          identification: [ { position: 130 } ] }
+  @EndUserText.label: 'Requester Name'
+  Requestername;
+
+  @UI: {  lineItem:       [ { position: 140 } ],
+          identification: [ { position: 140 } ] }
+  @EndUserText.label: 'Transporter Details'
+  Transporterdetails;
+
+  @UI: {  lineItem:       [ { position: 150 } ],
+          identification: [ { position: 150 } ] }
+  @EndUserText.label: 'Remarks'
+  Remarks;
+  @UI: {  lineItem:       [ { position: 160 } ],
+          identification: [ { position: 160 } ] }
+  @EndUserText.label: 'Lorry Num'
+  Lorrynum;
+  @UI: {  lineItem:       [ { position: 170 } ],
+          identification: [ { position: 170 } ] }
+  @EndUserText.label: 'Mode Of Transport'
+  Modeoftransport;
+
+  @UI: {  lineItem:       [ { position: 180 } ],
+          identification: [ { position: 180 } ] }
+  @EndUserText.label: 'Created By'
+  Createdby;
+
+  @UI: {  lineItem:       [ { position: 190 } ],
+          identification: [ { position: 190 } ] }
+  @EndUserText.label: 'Create On'
+  Createdat;
+
+  @UI: {  lineItem:       [ { position: 200 } ],
+          identification: [ { position: 200 } ] }
+  @EndUserText.label: 'Changed By'
+  Lastchangedby;
+
+  @UI: {  lineItem:       [ { position: 210 } ],
+          identification: [ { position: 210 } ] }
+  @EndUserText.label: 'Changed On'
+  //          @UI.hidden: true
+  Lastchangedat;
+//  @UI: {  lineItem:       [
+//    {  type: #FOR_ACTION, dataAction: 'print', label: 'Print' }
+//     ]
+//   }
+//  @EndUserText.label: 'Print form'
+//  printform;
+  ////  /* Associations */
+  ////  _item;
+
+}
