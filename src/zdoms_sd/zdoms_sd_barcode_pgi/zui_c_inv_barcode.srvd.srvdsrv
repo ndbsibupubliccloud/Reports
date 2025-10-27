@@ -1,0 +1,4 @@
+@EndUserText.label: 'Service Defination for Invoice Barcode Scanning for PGI'
+define service ZUI_C_INV_BARCODE {
+  expose ZC_Invoice_Barcode;
+}
